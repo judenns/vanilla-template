@@ -1,15 +1,14 @@
 # Vanilla JS Template
 
-Modern, minimal Vanilla JavaScript boilerplate with Vite, ready for production.
+Basic vite vanilla template config to my personal preferences.
 
-## ✨ Features
+## 📦 Stacks
 
-- ⚡️ **Vite 7** - Lightning fast HMR & optimized builds
+- ⚡️ **Vite 7** 
 - 🎨 **PostCSS** - Modern CSS with autoprefixer, cssnano, preset-env
-- 🔍 **Biome** - Fast linter & formatter (ESLint + Prettier alternative)
+- 🔍 **Biome** - Linter & formatter 
 - 🗂️ **Path Aliases** - Clean imports with `@` prefix
 - 🌍 **Environment Variables** - `.env` support with Vite
-- 📦 **Organized Structure** - Scalable folder organization
 
 ## 🚀 Quick Start
 
@@ -31,17 +30,11 @@ git commit -m "Initial commit"
 # Install dependencies
 npm install
 
-# Start dev server (http://localhost:5173)
-npm run dev
-```
-
-### Development
-
-```bash
-npm run dev          # Start dev server
-npm run build        # Build for production
-npm run preview      # Preview production build
-```
+# Code Quality
+npm run lint         # Lint code
+npm run lint:fix     # Fix lint issues
+npm run format       # Format code
+npm run check        # Lint + format
 
 ## 📁 Folder Structure
 
@@ -114,22 +107,6 @@ console.log(import.meta.env.MODE)  // 'development' or 'production'
 - `.env.local` - For secrets (gitignored)
 - Production - Set env vars in hosting dashboard
 
-## 📜 Available Scripts
-
-```bash
-# Development
-npm run dev          # Start dev server
-
-# Build
-npm run build        # Production build
-npm run preview      # Preview production build
-
-# Code Quality
-npm run lint         # Lint code
-npm run lint:fix     # Fix lint issues
-npm run format       # Format code
-npm run check        # Lint + format
-```
 
 ## 🎨 Assets Handling
 
@@ -160,7 +137,7 @@ import logo from '@assets/images/logo.png'
   target: ['es2022', 'chrome89', 'firefox89', 'safari15'],
   cssMinify: false,  // Using cssnano in PostCSS
   sourcemap: process.env.NODE_ENV === 'production' ? 'hidden' : true,
-  minify: 'esbuild'  // Fast minification
+  minify: 'esbuild'  
 }
 ```
 
@@ -172,12 +149,6 @@ import logo from '@assets/images/logo.png'
 4. **CSS:** Organize by base/components structure
 5. **Code quality:** Run `npm run check` before commit
 
-## 📦 Tech Stack
-
-- **Build Tool:** Vite 7.2
-- **CSS Processing:** PostCSS + autoprefixer + cssnano
-- **Code Quality:** Biome 2.3
-- **Language:** Vanilla JavaScript (ES2022+)
 
 ## 📄 License
 
@@ -185,4 +156,3 @@ MIT
 
 ---
 
-**Ready to build!** 🚀
