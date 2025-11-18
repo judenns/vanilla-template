@@ -29,16 +29,41 @@ git commit -m "Initial commit"
 
 # Install dependencies
 npm install
+```
 
-# Code Quality
+### Development
+
+```bash
+npm run dev          # Start dev server
+npm run build        # Build for production
+npm run preview      # Preview production build
+```
+
+### Code Quality
+
+```bash
 npm run lint         # Lint code
 npm run lint:fix     # Fix lint issues
 npm run format       # Format code
 npm run check        # Lint + format
+```
+
+### Maintenance
+
+```bash
+npm run clean        # Clean dist folder
+npm run clean:all    # Clean dist, node_modules, package-lock.json
+npm run reinstall    # Clean all + reinstall dependencies
+```
+
+**When to use:**
+- `clean` - Before fresh production build
+- `clean:all` - Fix corrupted dependencies or conflicts
+- `reinstall` - Quick fix for dependency issues (one command)
 
 ## 📁 Folder Structure
 
-```
+```text
 ├── public/              # Static assets (copied as-is)
 │   ├── favicon.ico      # → /favicon.ico
 │   └── robots.txt       # → /robots.txt
@@ -73,7 +98,7 @@ npm run check        # Lint + format
 
 ### Path Aliases
 
-Import với `@` thay vì relative paths:
+Import with `@` instead of relative paths:
 
 ```javascript
 // ❌ Before
@@ -152,7 +177,9 @@ import logo from '@assets/images/logo.png'
 
 ## 📄 License
 
-MIT
+MIT - Free to use for personal and commercial projects.
+
+See [LICENSE](LICENSE) file for details.
 
 ---
 
