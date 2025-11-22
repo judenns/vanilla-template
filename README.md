@@ -28,32 +28,32 @@ git add .
 git commit -m "Initial commit"
 
 # Install dependencies
-npm install
+pnpm install
 ```
 
 ### Development
 
 ```bash
-npm run dev          # Start dev server
-npm run build        # Build for production
-npm run preview      # Preview production build
+pnpm dev          # Start dev server
+pnpm build        # Build for production
+pnpm preview      # Preview production build
 ```
 
 ### Code Quality
 
 ```bash
-npm run lint         # Lint code
-npm run lint:fix     # Fix lint issues
-npm run format       # Format code
-npm run check        # Lint + format
+pnpm lint         # Lint code
+pnpm lint:fix     # Fix lint issues
+pnpm format       # Format code
+pnpm check        # Lint + format
 ```
 
 ### Maintenance
 
 ```bash
-npm run clean        # Clean dist folder
-npm run clean:all    # Clean dist, node_modules, package-lock.json
-npm run reinstall    # Clean all + reinstall dependencies
+pnpm clean        # Clean dist folder
+pnpm clean:all    # Clean dist, node_modules, pnpm-lock.yaml
+pnpm reinstall    # Clean all + reinstall dependencies
 ```
 
 **When to use:**
@@ -172,7 +172,7 @@ import logo from '@assets/images/logo.png'
 2. **Assets:** Store in `src/assets/` for optimization
 3. **Env vars:** Use `.env.local` for secrets (not committed)
 4. **CSS:** Organize by base/components structure
-5. **Code quality:** Run `npm run check` before commit
+5. **Code quality:** Run `pnpm check` before commit
 
 
 ## 📄 License
