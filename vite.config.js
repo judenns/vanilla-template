@@ -1,19 +1,22 @@
+import path from 'node:path';
+import { fileURLToPath } from 'node:url';
 import { defineConfig } from 'vite';
-import path from 'path';
+
+const __dirname = fileURLToPath(new URL('.', import.meta.url));
 
 export default defineConfig({
 	base: '/',
 
 	resolve: {
 		alias: {
-			'@': path.resolve(__dirname, './src'),
-			'@css': path.resolve(__dirname, './src/css'),
-			'@js': path.resolve(__dirname, './src/js'),
-			'@utils': path.resolve(__dirname, './src/js/utils'),
-			'@modules': path.resolve(__dirname, './src/js/modules'),
-			'@services': path.resolve(__dirname, './src/js/services'),
-			'@lib': path.resolve(__dirname, './src/js/lib'),
-			'@assets': path.resolve(__dirname, './src/assets'),
+			'@': path.resolve(__dirname, 'src'),
+			'@css': path.resolve(__dirname, 'src/css'),
+			'@js': path.resolve(__dirname, 'src/js'),
+			'@utils': path.resolve(__dirname, 'src/js/utils'),
+			'@modules': path.resolve(__dirname, 'src/js/modules'),
+			'@services': path.resolve(__dirname, 'src/js/services'),
+			'@lib': path.resolve(__dirname, 'src/js/lib'),
+			'@assets': path.resolve(__dirname, 'src/assets'),
 		},
 	},
 
