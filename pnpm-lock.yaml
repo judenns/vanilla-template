@@ -17,9 +17,6 @@ importers:
       cssnano:
         specifier: ^7.1.2
         version: 7.1.2(postcss@8.5.6)
-      i:
-        specifier: ^0.3.7
-        version: 0.3.7
       postcss:
         specifier: ^8.5.6
         version: 8.5.6
@@ -29,6 +26,9 @@ importers:
       postcss-preset-env:
         specifier: ^10.4.0
         version: 10.4.0(postcss@8.5.6)
+      prettier:
+        specifier: ^3.7.4
+        version: 3.7.4
       vite:
         specifier: ^7.2.2
         version: 7.2.4
@@ -787,10 +787,6 @@ packages:
     resolution: {integrity: sha512-0hJU9SCPvmMzIBdZFqNPXWa6dqh7WdH0cII9y+CyS8rG3nL48Bclra9HmKhVVUHyPWNH5Y7xDwAB7bfgSjkUMQ==}
     engines: {node: '>= 0.4'}
 
-  i@0.3.7:
-    resolution: {integrity: sha512-FYz4wlXgkQwIPqhzC5TdNMLSE5+GS1IIDJZY/1ZiEPCT2S3COUVZeT5OW4BmW4r5LHLQuOosSwsvnroG9GR59Q==}
-    engines: {node: '>=0.4'}
-
   is-core-module@2.16.1:
     resolution: {integrity: sha512-UfoeMA6fIJ8wTYFEUjelnaGI67v6+N7qXJEvQuIGa99l4xsCruSYOVSQ0uPANn4dAzm8lkYPaKLrrijLq7x23w==}
     engines: {node: '>= 0.4'}
@@ -1171,6 +1167,11 @@ packages:
   postcss@8.5.6:
     resolution: {integrity: sha512-3Ybi1tAuwAP9s0r1UQ2J4n5Y0G05bJkpUIO0/bI9MhwmD70S5aTWbXGBwxHrelT+XM1k6dM0pk+SwNkpTRN7Pg==}
     engines: {node: ^10 || ^12 || >=14}
+
+  prettier@3.7.4:
+    resolution: {integrity: sha512-v6UNi1+3hSlVvv8fSaoUbggEM5VErKmmpGA7Pl3HF8V6uKY7rvClBOJlH6yNwQtfTueNkGVpOv/mtWL9L4bgRA==}
+    engines: {node: '>=14'}
+    hasBin: true
 
   read-cache@1.0.0:
     resolution: {integrity: sha512-Owdv/Ft7IjOgm/i0xvNDZ1LrRANRfew4b2prF3OWMQLxLfu3bS8FVhCsrSCMK4lR56Y9ya+AThoTpDCTxCmpRA==}
@@ -1926,8 +1927,6 @@ snapshots:
     dependencies:
       function-bind: 1.1.2
 
-  i@0.3.7: {}
-
   is-core-module@2.16.1:
     dependencies:
       hasown: 2.0.2
@@ -2344,6 +2343,8 @@ snapshots:
       nanoid: 3.3.11
       picocolors: 1.1.1
       source-map-js: 1.2.1
+
+  prettier@3.7.4: {}
 
   read-cache@1.0.0:
     dependencies:

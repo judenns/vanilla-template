@@ -1,185 +1,114 @@
 # Vanilla JS Template
 
-Basic vite vanilla template config to my personal preferences.
+Minimal Vite vanilla template.
 
 ## 📦 Stacks
 
-- ⚡️ **Vite 7** 
-- 🎨 **PostCSS** - Modern CSS with autoprefixer, cssnano, preset-env
-- 🔍 **Biome** - Linter & formatter 
-- 🗂️ **Path Aliases** - Clean imports with `@` prefix
-- 🌍 **Environment Variables** - `.env` support with Vite
+- ⚡️ **Vite 7** - Build tool
+- 🎨 **PostCSS** - autoprefixer, cssnano, preset-env
+- 🔍 **Biome** - Linter & formatter (JS/TS/JSON)
+- ✨ **Prettier** - Formatter (CSS/HTML)
+- 🗂️ **Path Alias** - `@` → `./src`
 
 ## 🚀 Quick Start
 
-### Clone & Setup
-
 ```bash
-# Clone this template
+# Clone
 git clone https://github.com/your-username/vanilla-template.git my-project
-
-# Navigate to project
 cd my-project
 
-# Remove git history & reinitialize
-rm -rf .git
-git init
-git add .
-git commit -m "Initial commit"
+# Clean git
+rm -rf .git && git init
 
-# Install dependencies
+# Install
 pnpm install
+
+# Dev
+pnpm dev
 ```
 
-### Development
+## 📜 Scripts
 
 ```bash
+# Development
 pnpm dev          # Start dev server
-pnpm build        # Build for production
-pnpm preview      # Preview production build
-```
+pnpm build        # Build production
+pnpm preview      # Preview build
 
-### Code Quality
-
-```bash
+# Code Quality
 pnpm lint         # Lint code
 pnpm lint:fix     # Fix lint issues
-pnpm format       # Format code
-pnpm check        # Lint + format
+pnpm format       # Format JS/TS/JSON (Biome)
+pnpm format:css   # Format CSS (Prettier)
+pnpm format:html  # Format HTML (Prettier)
+pnpm format:all   # Format all
+pnpm check        # Lint + format (Biome)
+
+# Maintenance
+pnpm clean        # Clean dist
+pnpm clean:all    # Clean dist + node_modules
+pnpm reinstall    # Clean all + reinstall
 ```
 
-### Maintenance
+## 📁 Structure
 
-```bash
-pnpm clean        # Clean dist folder
-pnpm clean:all    # Clean dist, node_modules, pnpm-lock.yaml
-pnpm reinstall    # Clean all + reinstall dependencies
 ```
-
-**When to use:**
-- `clean` - Before fresh production build
-- `clean:all` - Fix corrupted dependencies or conflicts
-- `reinstall` - Quick fix for dependency issues (one command)
-
-## 📁 Folder Structure
-
-```text
-├── public/              # Static assets (copied as-is)
-│   ├── favicon.ico      # → /favicon.ico
-│   └── robots.txt       # → /robots.txt
-│
+├── public/              # Static assets
 ├── src/
-│   ├── assets/          # Processed assets (optimized, hashed)
-│   │   ├── fonts/
-│   │   ├── icons/
-│   │   └── images/
-│   │
+│   ├── assets/          # Processed assets (optimized)
 │   ├── css/
-│   │   ├── base/        # Typography, layout, utilities
-│   │   ├── components/  # Component styles
-│   │   ├── reset.css
-│   │   ├── global.css
+│   │   ├── base/
+│   │   ├── components/
 │   │   └── index.css
-│   │
 │   └── js/
-│       ├── lib/         # Third-party integrations
-│       ├── modules/     # Feature modules
-│       ├── services/    # API, storage, etc.
-│       ├── utils/       # Helpers, constants
-│       └── main.js      # Entry point
-│
-├── .env                 # Environment variables
-├── vite.config.js       # Vite configuration
-├── postcss.config.js    # PostCSS configuration
-└── biome.json           # Biome configuration
+│       ├── lib/
+│       ├── modules/
+│       ├── services/
+│       ├── utils/
+│       └── main.js
+├── .env
+├── .prettierrc.json
+├── biome.json
+├── postcss.config.js
+└── vite.config.js
 ```
 
-## 🔧 Configuration
+## 🔧 Config
 
-### Path Aliases
-
-Import with `@` instead of relative paths:
+### Path Alias
 
 ```javascript
-// ❌ Before
+// Before
 import helper from '../../utils/helper.js'
 
-// ✅ After
-import helper from '@utils/helper.js'
+// After
+import helper from '@/js/utils/helper.js'
 ```
 
-**Available aliases:**
-- `@` → `./src`
-- `@css` → `./src/css`
-- `@js` → `./src/js`
-- `@utils` → `./src/js/utils`
-- `@modules` → `./src/js/modules`
-- `@services` → `./src/js/services`
-- `@lib` → `./src/js/lib`
-- `@assets` → `./src/assets`
-
-### Environment Variables
-
-Variables prefixed with `VITE_` are exposed to client-side code:
+### Env Variables
 
 ```javascript
-// Access in code
+// .env
+VITE_APP_TITLE=My App
+
+// Access
 console.log(import.meta.env.VITE_APP_TITLE)
-console.log(import.meta.env.MODE)  // 'development' or 'production'
 ```
 
-- `.env` - Committed to git (no secrets)
-- `.env.local` - For secrets (gitignored)
-- Production - Set env vars in hosting dashboard
-
-
-## 🎨 Assets Handling
-
-### `src/assets/` (Recommended)
-- ✅ Optimized & hashed filenames
-- ✅ Cache busting
-- ✅ Tree-shaking (only used files)
-
-```javascript
-import logo from '@assets/images/logo.png'
-// → /assets/logo-a3f2b9c1.png
-```
-
-### `public/` (Static files)
-- ✅ Fixed URLs
-- ❌ No optimization
-
-```html
-<img src="/favicon.ico">
-<!-- → /favicon.ico -->
-```
-
-## 🏗️ Build Configuration
+### Build Target
 
 ```javascript
 // vite.config.js
-{
-  target: ['es2022', 'chrome89', 'firefox89', 'safari15'],
-  cssMinify: false,  // Using cssnano in PostCSS
-  sourcemap: process.env.NODE_ENV === 'production' ? 'hidden' : true,
-  minify: 'esbuild'  
-}
+target: 'baseline-widely-available'  // Chrome 107+, Safari 16+, Firefox 104+
 ```
 
-## 📝 Best Practices
+## 📝 Notes
 
-1. **Imports:** Use path aliases for cleaner code
-2. **Assets:** Store in `src/assets/` for optimization
-3. **Env vars:** Use `.env.local` for secrets (not committed)
-4. **CSS:** Organize by base/components structure
-5. **Code quality:** Run `pnpm check` before commit
-
+- **Assets:** `src/assets/` cho optimization, `public/` cho static
+- **Secrets:** Dùng `.env.local` (gitignored)
+- **Biome:** tabs, 100 width, single quotes
+- **Prettier:** align với Biome config
 
 ## 📄 License
 
-MIT - Free to use for personal and commercial projects.
-
-See [LICENSE](LICENSE) file for details.
-
----
-
+MIT
