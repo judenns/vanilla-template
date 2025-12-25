@@ -38,15 +38,11 @@ pnpm preview      # Preview build
 # Code Quality
 pnpm lint         # Lint code
 pnpm lint:fix     # Fix lint issues
-pnpm format       # Format JS/TS/JSON (Biome)
-pnpm format:css   # Format CSS (Prettier)
-pnpm format:html  # Format HTML (Prettier)
-pnpm format:all   # Format all
-pnpm check        # Lint + format (Biome)
+pnpm format       # Format all (Biome + Prettier)
+pnpm ci           # CI check (Biome)
 
 # Maintenance
 pnpm clean        # Clean dist
-pnpm clean:all    # Clean dist + node_modules
 pnpm reinstall    # Clean all + reinstall
 ```
 
@@ -55,10 +51,15 @@ pnpm reinstall    # Clean all + reinstall
 ```
 ├── public/              # Static assets
 ├── src/
-│   ├── assets/          # Processed assets (optimized)
+│   ├── assets/
+│   │   ├── fonts/
+│   │   ├── icons/
+│   │   └── images/
 │   ├── css/
 │   │   ├── base/
 │   │   ├── components/
+│   │   ├── reset.css
+│   │   ├── global.css
 │   │   └── index.css
 │   └── js/
 │       ├── lib/
@@ -66,6 +67,7 @@ pnpm reinstall    # Clean all + reinstall
 │       ├── services/
 │       ├── utils/
 │       └── main.js
+├── index.html
 ├── .env
 ├── .prettierrc.json
 ├── biome.json
